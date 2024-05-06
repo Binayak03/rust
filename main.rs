@@ -1,5 +1,5 @@
 use std::io;
-enum Calculator{
+enum Operation{
     Add,
     Subtract,
     Multiply,
@@ -17,21 +17,21 @@ fn main() {
     io::stdin().read_line(&mut num2).expect("Failed to read line");
     let num2:i32 = num2.trim().parse().expect("Plesse enter numver");
 
-    println!("Choose Operations");
+    println!("Choose number");
     println!("1.  Add");
     println!("2.  Subtract");
     println!("3.  Multiplication");
     println!("4.  Division");
 
-    let mut operation = String::new();
-    io::stdin().read_line(&mut operation).expect("Failed to read line");
-    let operation:u32 = operation.trim().parse().expect("Enter the number");
+    let mut number = String::new();
+    io::stdin().read_line(&mut number).expect("Failed to read line");
+    let number:u32 = number.trim().parse().expect("Enter the number");
 
-    let result = match operation {
-        1 => calculate(num1, num2, Calculator::Add),
-        2 => calculate(num1, num2, Calculator::Subtract),
-        3 => calculate(num1, num2, Calculator::Multiply),
-        4 => calculate(num1, num2, Calculator::Division),
+    let result = match number {
+        1 => calculate(num1, num2, Operation::Add),
+        2 => calculate(num1, num2, Operation::Subtract),
+        3 => calculate(num1, num2, Operation::Multiply),
+        4 => calculate(num1, num2, Operation::Division),
         _ => {
             println!("Invalid Option");
             return;
@@ -44,12 +44,12 @@ fn main() {
    
 }
 
-fn calculate(num1:i32 ,num2: i32, operation: Calculator) ->f32{
-    match operation{
-    Calculator :: Add => (num1 + num2 ) as f32,
-    Calculator :: Subtract => (num1 - num2 ) as f32,
-    Calculator :: Multiply => (num1 * num2 ) as f32,
-    Calculator :: Division => (num1 / num2 ) as f32,
+fn calculate(num1:i32 ,num2: i32, number: Operation) ->f32{
+    match number{
+    Operation :: Add => (num1 + num2 ) as f32,
+    Operation :: Subtract => (num1 - num2 ) as f32,
+    Operation :: Multiply => (num1 * num2 ) as f32,
+    Operation :: Division => (num1 / num2 ) as f32,
     }
 
 
