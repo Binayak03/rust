@@ -19,9 +19,9 @@ fn main() {
 
     println!("Choose Operations");
     println!("1.  Add");
-    println!("1.  Subtract");
-    println!("1.  Multiplication");
-    println!("1.  Division");
+    println!("2.  Subtract");
+    println!("3.  Multiplication");
+    println!("4.  Division");
 
     let mut operation = String::new();
     io::stdin().read_line(&mut operation).expect("Failed to read line");
